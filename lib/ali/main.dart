@@ -1,5 +1,6 @@
 import 'package:alarm_test_ios/ali/awesome_local_notifcation_v2.dart';
 import 'package:alarm_test_ios/ali/local_notifcation.dart';
+import 'package:alarm_test_ios/ali/local_notifcation_v3.dart';
 import 'package:alarm_test_ios/ali/not_local_notifcation.dart';
 import 'package:alarm_test_ios/ali/ui/home.dart';
 import 'package:flutter/material.dart';
@@ -9,7 +10,9 @@ Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   SystemChrome.setPreferredOrientations([DeviceOrientation.portraitUp]);
 
-  AwesomeLocalNotificationsHelperV2.localNotificationsHelper.initLocalNotifications();
+  // AwesomeLocalNotificationsHelperV2.localNotificationsHelper.initLocalNotifications();
+  // LocalNotificationsHelper.localNotificationsHelper.initLocalNotifications();
+  LocalNotificationsHelper_v3.localNotificationsHelper.initLocalNotifications();
   runApp(const MaterialApp(home: MyApp()));
 }
 

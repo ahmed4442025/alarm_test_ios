@@ -1,5 +1,7 @@
 import 'package:adhan_dart/adhan_dart.dart';
 import 'package:alarm_test_ios/ali/awesome_local_notifcation_v2.dart';
+import 'package:alarm_test_ios/ali/local_notifcation.dart';
+import 'package:alarm_test_ios/ali/local_notifcation_v3.dart';
 import 'package:alarm_test_ios/ali/not_local_notifcation.dart';
 import 'package:flutter/material.dart';
 
@@ -32,7 +34,9 @@ class _HomeAliState extends State<HomeAli> {
   }
 
   void setTimeDaily() {
-    AwesomeLocalNotificationsHelperV2.localNotificationsHelper.showAdhansNotificationsToWeek();
+    // AwesomeLocalNotificationsHelperV2.localNotificationsHelper.showAdhansNotificationsToWeek();
+    // LocalNotificationsHelper.localNotificationsHelper.showAdhansNotificationsToWeek();
+    LocalNotificationsHelper_v3.localNotificationsHelper.showAdhansNotificationsToWeek();
   }
 
   void test() {

@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:math';
 import 'package:adhan_dart/adhan_dart.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:timezone/data/latest_all.dart' as tz;
@@ -24,6 +25,7 @@ class LocalNotificationsHelper {
       requestAlertPermission: true,
       requestBadgePermission: true,
       requestSoundPermission: true,
+
     );
 
     var initializationSettings = InitializationSettings(
@@ -34,13 +36,6 @@ class LocalNotificationsHelper {
     flutterLocalNotificationsPlugin.initialize(
       initializationSettings,
 
-      // onSelectNotification: (value) {
-      //
-      //   // go to show adhan page
-      //
-      //   // RouteHelper.routeHelper.push(const SplashPage());
-      //
-      // }
     );
   }
 
@@ -65,6 +60,11 @@ class LocalNotificationsHelper {
         enableLights: true,
         sound: RawResourceAndroidNotificationSound(soundName),
         playSound: true,
+            actions: <AndroidNotificationAction>[
+              AndroidNotificationAction('stop', 'stop',titleColor: Colors.red,showsUserInterface: true),
+              AndroidNotificationAction('id_2', 'Action 2'),
+              AndroidNotificationAction('id_3', 'Action 3'),
+            ],
       );
 
       DarwinNotificationDetails iosNotificationDetails =
