@@ -12,7 +12,7 @@ Future<void> main() async {
 
   // AwesomeLocalNotificationsHelperV2.localNotificationsHelper.initLocalNotifications();
   // LocalNotificationsHelper.localNotificationsHelper.initLocalNotifications();
-  LocalNotificationsHelper_v3.localNotificationsHelper.initLocalNotifications();
+  // LocalNotificationsHelper_v3.localNotificationsHelper.initLocalNotifications();
   runApp(const MaterialApp(home: MyApp()));
 }
 

@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:math';
 import 'package:adhan_dart/adhan_dart.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_local_notifications/flutter_local_notifications.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:timezone/data/latest_all.dart' as tz;
@@ -59,6 +60,12 @@ class LocalNotificationsHelper_v3 {
         enableLights: true,
         sound: RawResourceAndroidNotificationSound(soundName),
         playSound: true,
+        channelShowBadge: true,
+        actions: <AndroidNotificationAction>[
+          const AndroidNotificationAction('stop', 'Stop', titleColor: Colors.red),
+          const AndroidNotificationAction('open', 'Open', titleColor: Colors.green),
+          const AndroidNotificationAction('id_3', 'Action 3'),
+        ],
       );
 
       DarwinNotificationDetails iosNotificationDetails = DarwinNotificationDetails(
@@ -199,7 +206,7 @@ class LocalNotificationsHelper_v3 {
   }
 
   void setDuaAdhanNotifyTest() {
-    DateTime time = DateTime.now().add(Duration(seconds: 10));
+    DateTime time = DateTime.now().add(const Duration(seconds: 10));
     flutterLocalNotificationsPlugin.cancelAll();
     for (int i = 0; i < 64; i++) {
       int r = Random().nextInt(888888);
@@ -257,7 +264,7 @@ class LocalNotificationsHelper_v3 {
   Future<PrayerTimes> getAdhanToDayTimes({
     required DateTime dateTime,
   }) async {
-    Coordinates myLocaion =Coordinates(30.0920887, 31.3713982);
+    Coordinates myLocaion = Coordinates(30.0920887, 31.3713982);
     // get time adhan to date time
     // final nyUtcOffset = Duration(hours: 2);
     final nyDate = DateTime(dateTime.year, dateTime.month, dateTime.day);
@@ -306,7 +313,8 @@ class LocalNotificationsHelper_v3 {
   late StreamSubscription<Position> positionStream;
 
   getLocation() async {
-    position = await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
+    position =
+        await Geolocator.getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
     print(position.longitude); //Output: 80.24599079
     print(position.latitude); //Output: 29.6593457
 
